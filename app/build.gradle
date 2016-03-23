@@ -25,19 +25,47 @@ android {
         versionName "1.0"
         targetSdkVersion 23
     }
-    productFlavors {
+    /* buildTypes {
+         debug {
+             debuggable true
+             minifyEnabled false
+             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+             testCoverageEnabled true
+         }
+
+     }*/
+    /*productFlavors {
+        unitTest // Creates a new scope which wraps only unit tests
+    }
+
+    sourceSets {
+        unitTest {
+            java {
+                srcDir 'src/test/java' // New scope includes our unit test folder
+            }
+        }
+    }*/
+
+
+    sourceSets {
+        test {
+            java {
+                srcDir 'src/test/java' // New scope includes our unit test folder
+            }
+
+
+        }
+    }
+        lintOptions {
+            // I prefer avoiding a build fail if there is any warning, for they are only warnings
+            abortOnError false
+        }
+
     }
 
 
-
-    lintOptions {
-        // I prefer avoiding a build fail if there is any warning, for they are only warnings
-        abortOnError false
+    dependencies {
+        // Unit testing dependencies.
+        testCompile 'junit:junit:4.12'
+        testCompile 'org.mockito:mockito-core:1.10.19'
     }
-
-}
-dependencies {
-    // Unit testing dependencies.
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:1.10.19'
-}

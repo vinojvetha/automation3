@@ -142,7 +142,6 @@ public class SharedPreferencesHelperTest {
     private SharedPreferencesHelper createBrokenMockSharedPreference() {
         // Mocking a commit that fails.
         when(mMockBrokenEditor.commit()).thenReturn(false);
-
         // Return the broken MockEditor when requesting it.
         when(mMockBrokenSharedPreferences.edit()).thenReturn(mMockBrokenEditor);
         return new SharedPreferencesHelper(mMockBrokenSharedPreferences);
